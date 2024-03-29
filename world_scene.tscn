@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxq5fi5f2m1x7"]
+
+[sub_resource type="Environment" id="Environment_dtkj2"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_gsohw"]
+
+[node name="WorldScene" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dtkj2")
+camera_attributes = SubResource("CameraAttributesPractical_gsohw")
+
+[node name="Camera2D" type="Camera2D" parent="WorldEnvironment"]
