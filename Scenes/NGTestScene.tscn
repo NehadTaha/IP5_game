@@ -6,3 +6,7 @@
 
 [node name="collectible1" parent="." instance=ExtResource("1_g55ot")]
 position = Vector2(32, 17)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(32, 17)
+zoom = Vector2(5, 5)
