@@ -6,6 +6,7 @@ var collected = false;
 
 func _ready():
 	Global.maxHealthFoodCount += 1;
+	animator.play("idle");
 
 
 func _on_body_entered(body):
