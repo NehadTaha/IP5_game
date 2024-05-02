@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://xlp3vfdlcbu5"]
+[gd_scene load_steps=9 format=3 uid="uid://bi854xivxihrs"]
 
 [ext_resource type="Script" path="res://end_checkpoint.gd" id="1_pwenr"]
 [ext_resource type="Texture2D" uid="uid://cjukwputdl3jp" path="res://Assets/Items/Checkpoints/End/End (Idle).png" id="1_uh22h"]
@@ -16,24 +16,13 @@ colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kpxdo"]
 gradient = SubResource("Gradient_wejhi")
 
-[sub_resource type="Curve" id="Curve_26465"]
-min_value = -3.95
-_data = [Vector2(0, -1.00888), 0.0, 0.0, 0, 0, Vector2(0.00265252, -0.646622), 0.0, 0.0, 0, 0, Vector2(0.97878, 1), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_nb0i5"]
-curve_y = SubResource("Curve_26465")
-
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t56dh"]
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
 spread = 180.0
-directional_velocity_min = 50.0
-directional_velocity_max = 100.0
-directional_velocity_curve = SubResource("CurveXYZTexture_nb0i5")
-radial_velocity_min = 50.0
-radial_velocity_max = 100.0
 gravity = Vector3(0, 50, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
 scale_min = 0.1
 scale_max = 0.5
 color_ramp = SubResource("GradientTexture1D_kpxdo")

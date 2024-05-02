@@ -1,0 +1,107 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr6feb1doym2s"]
+
+[ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_74att"]
+[ext_resource type="Texture2D" uid="uid://tue3n0gpc4nu" path="res://Assets/Background/game.png" id="2_k3c01"]
+[ext_resource type="Texture2D" uid="uid://b76274qtr0gor" path="res://Assets/Menu/Buttons/Play.png" id="3_fc4vj"]
+[ext_resource type="Texture2D" uid="uid://dwxcnuuyy3b5j" path="res://Assets/Menu/Buttons/Close.png" id="4_0drqt"]
+[ext_resource type="FontFile" uid="uid://bgda62dmfivuc" path="res://Assets/Fonts/super-pixel-font/SuperPixel-m2L8j.ttf" id="4_51b3p"]
+[ext_resource type="AudioStream" uid="uid://b7kia04uu8d8w" path="res://Sounds/chomp.mp3" id="7_yml7t"]
+[ext_resource type="AudioStream" uid="uid://cmdlhhjssxj2c" path="res://Sounds/game-176807.mp3" id="8_k705v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrs7h"]
+font = ExtResource("4_51b3p")
+font_size = 56
+font_color = Color(0.660999, 0.956361, 0.931275, 1)
+
+[node name="MainScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_74att")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k3c01")
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 95.0
+offset_right = 48.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.231373, 0.584314, 0, 1)
+text = "Game Name"
+label_settings = SubResource("LabelSettings_nrs7h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -183.0
+offset_top = -117.0
+offset_right = 229.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_colors/font_hover_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_colors/font_focus_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_51b3p")
+theme_override_font_sizes/font_size = 45
+action_mode = 0
+text = "Play"
+icon = ExtResource("3_fc4vj")
+expand_icon = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_colors/font_hover_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_colors/font_focus_color = Color(0.231373, 0.584314, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_fonts/font = ExtResource("4_51b3p")
+theme_override_font_sizes/font_size = 45
+action_mode = 0
+text = "Quit"
+icon = ExtResource("4_0drqt")
+expand_icon = true
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 16.0
+
+[node name="ClickedButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_yml7t")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_k705v")
+
+[connection signal="button_down" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_down"]
+[connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_down" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_button_up"]
