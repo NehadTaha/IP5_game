@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://p7ugr48hgyol"]
+
+[ext_resource type="Texture2D" uid="uid://cstq4bh8lwkg4" path="res://Assets/Background/Gray.png" id="1_e7jfs"]
+[ext_resource type="PackedScene" uid="uid://de1ob7pyocguo" path="res://tile_map.tscn" id="2_bgu5x"]
+[ext_resource type="PackedScene" uid="uid://bi854xivxihrs" path="res://Assets/Scenes/end_checkpoint.tscn" id="3_ochnb"]
+[ext_resource type="PackedScene" uid="uid://dyh7wotx6mktb" path="res://Scenes/player.tscn" id="4_1ixb2"]
+[ext_resource type="Texture2D" uid="uid://04vkmyqni36c" path="res://Assets/arrow.png" id="5_ru4im"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5btf"]
+size = Vector2(1771, 129.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oaap6"]
+size = Vector2(94, 923)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rpgp"]
+size = Vector2(95.5, 787.5)
+
+[node name="Level2" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1076.0
+offset_top = -513.0
+offset_right = 2204.0
+offset_bottom = 1609.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e7jfs")
+stretch_mode = 1
+
+[node name="TileMap" parent="." instance=ExtResource("2_bgu5x")]
+layer_0/tile_data = PackedInt32Array(1703927, 1114112, 4, 1703928, 1179648, 4, 1703929, 1310720, 4, 1703930, 1310720, 4, 1703931, 1245184, 4, 1835000, 1179648, 6, 1769463, 1114112, 5, 1834999, 1114112, 6, 1769464, 1179648, 5, 1769465, 1310720, 5, 1835001, 1179648, 6, 1769466, 1310720, 4, 1769467, 1245184, 5, 1835002, 1179648, 6, 1835003, 1245184, 6, 2097160, 1114112, 4, 2162696, 1114112, 5, 2228232, 1114112, 6, 2097161, 1179648, 4, 2162697, 1179648, 5, 2228233, 1179648, 6, 2097162, 1245184, 4, 2162698, 1245184, 5, 2228234, 1245184, 6, 1572882, 1114112, 4, 1638418, 1114112, 5, 1703954, 1114112, 6, 1572883, 1179648, 4, 1638419, 1179648, 5, 1703955, 1179648, 6, 1572884, 1245184, 4, 1638420, 1245184, 5, 1703956, 1245184, 6, 1572885, 1245184, 2, 2097163, 1245184, 2, 1703932, 1245184, 2, 1703953, 1114112, 2, 2097159, 1114112, 2, 1441819, 1114112, 4, 1245215, 1114112, 4, 1048611, 1114112, 4, 852007, 1114112, 4, 655403, 1114112, 4, 1507356, 1245184, 6, 1441820, 1245184, 4, 1507355, 1114112, 6, 1703995, 1114112, 4, 1769531, 1114112, 5, 1835067, 1114112, 6, 1703996, 1179648, 4, 1769532, 1179648, 5, 1835068, 1179648, 6, 1703997, 1179648, 4, 1769533, 1179648, 5, 1835069, 1179648, 6, 1703998, 1179648, 4, 1769534, 1179648, 5, 1835070, 1179648, 6, 1703999, 1179648, 4, 1769535, 1179648, 5, 1835071, 1179648, 6, 1704000, 1179648, 4, 1769536, 1179648, 5, 1835072, 1179648, 6, 1704001, 1179648, 4, 1769537, 1179648, 5, 1835073, 1179648, 6, 1704002, 1179648, 4, 1769538, 1179648, 5, 1835074, 1179648, 6, 1704003, 1179648, 4, 1769539, 1179648, 5, 1835075, 1179648, 6, 1704004, 1179648, 4, 1769540, 1179648, 5, 1835076, 1179648, 6, 1704005, 1179648, 4, 1769541, 1179648, 5, 1835077, 1179648, 6, 1704006, 1179648, 4, 1769542, 1179648, 5, 1835078, 1179648, 6, 1704007, 1179648, 4, 1769543, 1179648, 5, 1835079, 1179648, 6, 1704008, 1179648, 4, 1769544, 1179648, 5, 1835080, 1179648, 6, 1704009, 1179648, 4, 1769545, 1179648, 5, 1835081, 1179648, 6, 1704010, 1245184, 4, 1769546, 1245184, 5, 1835082, 1245184, 6)
+
+[node name="End checkpoint" parent="." instance=ExtResource("3_ochnb")]
+position = Vector2(1107, 385)
+
+[node name="Player" parent="." instance=ExtResource("4_1ixb2")]
+light_mask = 3
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(-114, 369)
+collision_mask = 2
+
+[node name="mapBorders" type="Area2D" parent="."]
+
+[node name="bottom" type="CollisionShape2D" parent="mapBorders"]
+position = Vector2(600.5, 736.75)
+shape = SubResource("RectangleShape2D_y5btf")
+
+[node name="left" type="CollisionShape2D" parent="mapBorders"]
+position = Vector2(-341, 341.5)
+shape = SubResource("RectangleShape2D_oaap6")
+
+[node name="right" type="CollisionShape2D" parent="mapBorders"]
+position = Vector2(1434, 281.75)
+shape = SubResource("RectangleShape2D_1rpgp")
+
+[node name="Sign" type="Sprite2D" parent="."]
+position = Vector2(973, 139)
+texture = ExtResource("5_ru4im")
+
+[connection signal="body_entered" from="mapBorders" to="Player" method="_on_map_borders_body_entered"]

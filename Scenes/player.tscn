@@ -56,11 +56,11 @@ func _physics_process(delta):
 	animated_sprite_2d.flip_h = isLeft
 	
 
-
+# this is to detect when player go out of bounds
+# player on mask 2  
 func _on_map_borders_body_entered(body):
 	print(\"hello\")
-	
-	pass # Replace with function body.
+	pass 
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xtsd7"]
