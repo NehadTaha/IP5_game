@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi854xivxihrs"]
+
+[ext_resource type="Texture2D" uid="uid://cjukwputdl3jp" path="res://Assets/Items/Checkpoints/End/End (Idle).png" id="1_uh22h"]
+[ext_resource type="Script" path="res://Assets/Scenes/Area2D.gd" id="2_ltqni"]
+[ext_resource type="Texture2D" uid="uid://c8hou5iaf35vs" path="res://Assets/Other/Dust Particle.png" id="3_owg2q"]
+[ext_resource type="Script" path="res://Assets/Scenes/boom.gd" id="4_i241o"]
+
+[sub_resource type="Gradient" id="Gradient_wejhi"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.280802, 0.621777)
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kpxdo"]
+gradient = SubResource("Gradient_wejhi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t56dh"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+spread = 180.0
+flatness = 0.4
+initial_velocity_min = 10.0
+initial_velocity_max = 300.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.1
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_kpxdo")
+hue_variation_min = 1.0
+hue_variation_max = 1.0
+turbulence_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mq7j4"]
+size = Vector2(45, 43)
+
+[node name="End checkpoint" type="StaticBody2D"]
+position = Vector2(1067, 368)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -2)
+script = ExtResource("2_ltqni")
+
+[node name="boom" type="GPUParticles2D" parent="Area2D"]
+texture_filter = 1
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_t56dh")
+texture = ExtResource("3_owg2q")
+lifetime = 3.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 1.0
+collision_base_size = 89.75
+script = ExtResource("4_i241o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture_filter = 1
+texture = ExtResource("1_uh22h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 10.5)
+shape = SubResource("RectangleShape2D_mq7j4")
+
+[connection signal="body_entered" from="Area2D" to="Area2D/boom" method="_on_area_2d_body_entered"]
+[connection signal="finished" from="Area2D/boom" to="Area2D/boom" method="_on_finished"]
