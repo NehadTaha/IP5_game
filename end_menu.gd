@@ -16,7 +16,7 @@ func _on_button_up():
 
 
 func _on_retry_menu_button_up():
-	get_tree().change_scene_to_file("res://Scenes/test.tscn")
+	get_tree().change_scene_to_file("res://Assets/Scenes/Level 1.tscn")
 	
 
 
