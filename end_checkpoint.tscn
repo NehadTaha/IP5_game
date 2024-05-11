@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi854xivxihrs"]
+[gd_scene load_steps=9 format=3 uid="uid://detlcqx7gtwta"]
 
 [ext_resource type="Script" path="res://end_checkpoint.gd" id="1_pwenr"]
 [ext_resource type="Texture2D" uid="uid://cjukwputdl3jp" path="res://Assets/Items/Checkpoints/End/End (Idle).png" id="1_uh22h"]
@@ -21,8 +21,6 @@ lifetime_randomness = 1.0
 particle_flag_disable_z = true
 spread = 180.0
 gravity = Vector3(0, 50, 0)
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
 scale_min = 0.1
 scale_max = 0.5
 color_ramp = SubResource("GradientTexture1D_kpxdo")
