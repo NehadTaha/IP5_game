@@ -10,17 +10,8 @@ func reset_collection():
 	maxHealthFoodCount = 0;
 	goalReached = false;
 
+
 # Return an array with a numerator/denominator pair representing the bananas collected
 func get_Collection_Progress():
 	return [healthFoodCount, maxHealthFoodCount]
 
-
-
-func resetLevel():
-	currentLevel = 1
-
-func increaseLevel():
-	currentLevel += 1
-
-func getCurrentLevel():
-	return currentLevel
