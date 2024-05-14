@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx78fbtdhn770"]
+
+[ext_resource type="Script" path="res://Scripts/GameUI.gd" id="1_bm6ga"]
+[ext_resource type="Texture2D" uid="uid://di3s4kdtkdtdw" path="res://Assets/Textures/bg.png" id="2_vawgx"]
+[ext_resource type="Texture2D" uid="uid://cxb14vqgeqdbj" path="res://Assets/Textures/over.png" id="3_4dm2j"]
+[ext_resource type="Texture2D" uid="uid://qbsk1n10iniu" path="res://Assets/Textures/Bloo.png" id="4_xjlqs"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_bm6ga")
+
+[node name="SliderContainer" type="MarginContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SliderContainer"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="SliderContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 10.0
+texture_under = ExtResource("2_vawgx")
+texture_over = ExtResource("3_4dm2j")
+texture_progress = ExtResource("4_xjlqs")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 168.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Fruits Collected:"
+
+[node name="fruit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="totalfruit" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "/10"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

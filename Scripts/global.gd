@@ -3,6 +3,7 @@ extends Node
 var healthFoodCount: int = 0;
 var maxHealthFoodCount: int = 0;
 var goalReached = false;
+var currentLevel: int = 1
 
 func reset_collection():
 	healthFoodCount = 0;
@@ -12,3 +13,14 @@ func reset_collection():
 # Return an array with a numerator/denominator pair representing the bananas collected
 func get_Collection_Progress():
 	return [healthFoodCount, maxHealthFoodCount]
+
+
+
+func resetLevel():
+	currentLevel = 1
+
+func increaseLevel():
+	currentLevel += 1
+
+func getCurrentLevel():
+	return currentLevel
