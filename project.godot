@@ -10,12 +10,10 @@ config_version=5
 
 [application]
 
-config/name="IP5_game"
-run/main_scene="res://world_scene.tscn"
+config/name="Ip 5 Game"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
-<<<<<<<HEADrun/main_scene="res://world_scene.tscn"
 
 [autoload]
 
-Global="*res://Scripts/global.gd"
+global="*res://Scripts/global.gd"

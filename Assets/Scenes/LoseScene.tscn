@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxwsen5dbwhsr"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/LoseScene.gd" id="1_1pukw"]
+
+[node name="LoseScene" type="CanvasLayer"]
+script = ExtResource("1_1pukw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.690196, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -36.0
+offset_right = 146.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelFailedLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Failed :("
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="RedoLevel" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Retry Level"
+
+[node name="MenuButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/RedoLevel" to="." method="_on_redo_level_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
