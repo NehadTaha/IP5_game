@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bi854xivxihrs"]
+[gd_scene load_steps=11 format=3 uid="uid://bwr311fs3iyvl"]
 
-[ext_resource type="Texture2D" uid="uid://cjukwputdl3jp" path="res://Assets/Items/Checkpoints/End/End (Idle).png" id="1_uh22h"]
-[ext_resource type="Script" path="res://Assets/Scenes/Area2D.gd" id="2_ltqni"]
-[ext_resource type="Texture2D" uid="uid://c8hou5iaf35vs" path="res://Assets/Other/Dust Particle.png" id="3_owg2q"]
+[ext_resource type="Script" path="res://Assets/Scenes/Area2D.gd" id="1_5amow"]
+[ext_resource type="Texture2D" uid="uid://c8hou5iaf35vs" path="res://Assets/Other/Dust Particle.png" id="2_vq2ku"]
+[ext_resource type="Texture2D" uid="uid://cjukwputdl3jp" path="res://Assets/Items/Checkpoints/End/End (Idle).png" id="3_uo8b2"]
 
 [sub_resource type="Gradient" id="Gradient_wejhi"]
 interpolation_mode = 2
@@ -33,6 +33,7 @@ script/source = "extends GPUParticles2D
 var isPlaying = false
 var level2 = preload(\"res://Assets/Scenes/Level 2.tscn\") 
 var level3 = preload(\"res://Assets/Scenes/Level 3.tscn\")
+var end = preload(\"res://Scenes/main_screen.tscn\")
 func _on_area_2d_body_entered(body):
 	if(!isPlaying):#&& global.healthFoodCount >= global.maxHealthFoodCount
 		set_emitting(true)
@@ -52,6 +53,10 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().change_scene_to_packed(level2)
 	if(global.currentLevel == 2):
 		get_tree().change_scene_to_packed(level3)
+	else:
+		get_tree().change_scene_to_packed(end)
+	
+	
 "
 
 [sub_resource type="Animation" id="Animation_fbgnk"]
@@ -70,14 +75,14 @@ position = Vector2(1067, 368)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -2)
-script = ExtResource("2_ltqni")
+script = ExtResource("1_5amow")
 
 [node name="boom" type="GPUParticles2D" parent="Area2D"]
 texture_filter = 1
 emitting = false
 amount = 100
 process_material = SubResource("ParticleProcessMaterial_t56dh")
-texture = ExtResource("3_owg2q")
+texture = ExtResource("2_vq2ku")
 lifetime = 3.0
 one_shot = true
 speed_scale = 2.0
@@ -93,7 +98,7 @@ libraries = {
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 texture_filter = 1
-texture = ExtResource("1_uh22h")
+texture = ExtResource("3_uo8b2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 10.5)
