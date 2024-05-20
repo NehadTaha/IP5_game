@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv6ntyqrb8030"]
+
+[ext_resource type="AudioStream" uid="uid://cmdlhhjssxj2c" path="res://Sounds/game-176807.mp3" id="1_myfei"]
+
+[node name="backmusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_myfei")
+volume_db = -2.0
+autoplay = true

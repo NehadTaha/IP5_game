@@ -3,11 +3,15 @@
 [ext_resource type="Script" path="res://Scenes/main_screen.gd" id="1_74att"]
 [ext_resource type="Texture2D" uid="uid://tue3n0gpc4nu" path="res://Assets/Background/game.png" id="2_k3c01"]
 [ext_resource type="Texture2D" uid="uid://b76274qtr0gor" path="res://Assets/Menu/Buttons/Play.png" id="3_fc4vj"]
-[ext_resource type="PackedScene" uid="uid://d34np0gaitwia" path="res://game_name.tscn" id="3_fyxee"]
 [ext_resource type="Texture2D" uid="uid://dwxcnuuyy3b5j" path="res://Assets/Menu/Buttons/Close.png" id="4_0drqt"]
 [ext_resource type="FontFile" uid="uid://bgda62dmfivuc" path="res://Assets/Fonts/super-pixel-font/SuperPixel-m2L8j.ttf" id="4_51b3p"]
 [ext_resource type="AudioStream" uid="uid://b7kia04uu8d8w" path="res://Sounds/chomp.mp3" id="7_yml7t"]
 [ext_resource type="AudioStream" uid="uid://cmdlhhjssxj2c" path="res://Sounds/game-176807.mp3" id="8_k705v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrs7h"]
+font = ExtResource("4_51b3p")
+font_size = 56
+font_color = Color(0.660999, 0.956361, 0.931275, 1)
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -27,6 +31,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_k3c01")
 
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 95.0
+offset_right = 48.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.231373, 0.584314, 0, 1)
+text = "Game Name"
+label_settings = SubResource("LabelSettings_nrs7h")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -34,17 +52,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -204.0
-offset_top = -200.0
-offset_right = 231.0
+offset_left = -183.0
+offset_top = -117.0
+offset_right = 229.0
 offset_bottom = 215.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-
-[node name="GameName" parent="VBoxContainer" instance=ExtResource("3_fyxee")]
-layout_mode = 2
-text = "Hunger Rush"
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
