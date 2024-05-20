@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd4gqvt3yqxvg"]
+[gd_scene load_steps=12 format=3 uid="uid://dd4gqvt3yqxvg"]
 
 [ext_resource type="Texture2D" uid="uid://81dfc3p7arpa" path="res://Assets/Background/Green.png" id="1_sm075"]
 [ext_resource type="Texture2D" uid="uid://cn64vts17bwau" path="res://Assets/Terrain/Terrain (16x16).png" id="2_dq1i8"]
 [ext_resource type="PackedScene" uid="uid://bi854xivxihrs" path="res://Assets/Scenes/end_checkpoint.tscn" id="3_fq5ot"]
 [ext_resource type="PackedScene" uid="uid://dyh7wotx6mktb" path="res://Scenes/player.tscn" id="4_sx15j"]
+[ext_resource type="PackedScene" uid="uid://c6p6owl02y6l3" path="res://Items/collectible1.tscn" id="5_xfr8b"]
+[ext_resource type="PackedScene" uid="uid://c284c3mio38fy" path="res://Items/collectible2.tscn" id="6_2qbvw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ud3h"]
 texture = ExtResource("2_dq1i8")
@@ -540,5 +542,26 @@ shape = SubResource("RectangleShape2D_fxmy8")
 [node name="right" type="CollisionShape2D" parent="mapBorders"]
 position = Vector2(1387, 298)
 shape = SubResource("RectangleShape2D_morst")
+
+[node name="collectible1" parent="." instance=ExtResource("5_xfr8b")]
+position = Vector2(104, 272)
+
+[node name="collectible2" parent="." instance=ExtResource("6_2qbvw")]
+position = Vector2(280, 384)
+
+[node name="collectible3" parent="." instance=ExtResource("5_xfr8b")]
+position = Vector2(169, -2)
+
+[node name="collectible4" parent="." instance=ExtResource("6_2qbvw")]
+position = Vector2(331, -15)
+
+[node name="collectible5" parent="." instance=ExtResource("5_xfr8b")]
+position = Vector2(563, -42)
+
+[node name="collectible6" parent="." instance=ExtResource("6_2qbvw")]
+position = Vector2(506, 437)
+
+[node name="collectible7" parent="." instance=ExtResource("5_xfr8b")]
+position = Vector2(700, 384)
 
 [connection signal="body_entered" from="mapBorders" to="Player" method="_on_map_borders_body_entered"]

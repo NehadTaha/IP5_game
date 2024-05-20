@@ -18,3 +18,5 @@ func _on_body_entered(body):
 		animator.play("collected")
 		emit_signal("collected_signal", 3) # Emit signal with the amount of time to add
 		print("Added 3 seconds")
+		print(global.healthFoodCount)
+		print(global.maxHealthFoodCount)

@@ -59,6 +59,8 @@ func _physics_process(delta):
 # this is to detect when player go out of bounds
 # player on mask 2  
 func _on_map_borders_body_entered(body):
+	global.currentLevel = 0
+	global.reset_collection()
 	print(\"hello\")
 	body.visible = false
 	get_tree().change_scene_to_file(\"res://end_menu.tscn\")

@@ -1,12 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://p7ugr48hgyol"]
+[gd_scene load_steps=9 format=3 uid="uid://p7ugr48hgyol"]
 
 [ext_resource type="Texture2D" uid="uid://cstq4bh8lwkg4" path="res://Assets/Background/Gray.png" id="1_e7jfs"]
 [ext_resource type="PackedScene" uid="uid://de1ob7pyocguo" path="res://tile_map.tscn" id="2_bgu5x"]
 [ext_resource type="PackedScene" uid="uid://dyh7wotx6mktb" path="res://Scenes/player.tscn" id="4_1ixb2"]
 [ext_resource type="PackedScene" uid="uid://bwr311fs3iyvl" path="res://Assets/Scenes/end_checkpoint3.tscn" id="4_hlfal"]
 [ext_resource type="Texture2D" uid="uid://04vkmyqni36c" path="res://Assets/arrow.png" id="5_ru4im"]
-[ext_resource type="PackedScene" uid="uid://c284c3mio38fy" path="res://Items/collectible2.tscn" id="6_37ipr"]
-[ext_resource type="PackedScene" uid="uid://c6p6owl02y6l3" path="res://Items/collectible1.tscn" id="7_y48di"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5btf"]
 size = Vector2(1771, 129.5)
@@ -63,31 +61,5 @@ shape = SubResource("RectangleShape2D_1rpgp")
 [node name="Sign" type="Sprite2D" parent="."]
 position = Vector2(973, 139)
 texture = ExtResource("5_ru4im")
-
-[node name="Items" type="Node" parent="."]
-
-[node name="collectible2" parent="Items" instance=ExtResource("6_37ipr")]
-position = Vector2(972, 169)
-
-[node name="collectible3" parent="Items" instance=ExtResource("6_37ipr")]
-position = Vector2(972, 201)
-
-[node name="collectible4" parent="Items" instance=ExtResource("6_37ipr")]
-position = Vector2(972, 232)
-
-[node name="collectible5" parent="Items" instance=ExtResource("6_37ipr")]
-position = Vector2(972, 262)
-
-[node name="collectible6" parent="Items" instance=ExtResource("6_37ipr")]
-position = Vector2(972, 295)
-
-[node name="collectible7" parent="Items" instance=ExtResource("6_37ipr")]
-position = Vector2(972, 321)
-
-[node name="collectible8" parent="Items" instance=ExtResource("6_37ipr")]
-position = Vector2(972, 351)
-
-[node name="collectible1" parent="Items" instance=ExtResource("7_y48di")]
-position = Vector2(316, 365)
 
 [connection signal="body_entered" from="mapBorders" to="Player" method="_on_map_borders_body_entered"]
