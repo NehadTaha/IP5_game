@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=3 uid="uid://d35ido56svua3"]
+
+[ext_resource type="Texture2D" uid="uid://di3s4kdtkdtdw" path="res://Assets/Textures/bg.png" id="1_1t170"]
+[ext_resource type="Script" path="res://Scenes/cutScene.gd" id="1_h4qeg"]
+[ext_resource type="Script" path="res://Scenes/AnimationPlayer.gd" id="3_2iyku"]
+
+[sub_resource type="Animation" id="Animation_7pjyl"]
+resource_name = "text_roll"
+length = 9.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("First_sentence:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Second sentence:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.28, 5.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.5, 9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_72n5g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("First_sentence:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0895522]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Second sentence:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjg3f"]
+_data = {
+"RESET": SubResource("Animation_72n5g"),
+"text_roll": SubResource("Animation_7pjyl")
+}
+
+[node name="CutScene" type="Node2D"]
+script = ExtResource("1_h4qeg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+offset_left = -1286.0
+offset_top = -719.0
+offset_right = 1202.0
+offset_bottom = 788.0
+texture = ExtResource("1_1t170")
+
+[node name="Node2D" type="Node2D" parent="Camera2D/TextureRect"]
+position = Vector2(1286, 719)
+
+[node name="First_sentence" type="Label" parent="Camera2D/TextureRect/Node2D"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Oh no, it would seem I have been touched by the old witche's curse."
+visible_characters = 6
+visible_ratio = 0.0895522
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D/TextureRect/Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_qjg3f")
+}
+script = ExtResource("3_2iyku")
+
+[node name="Second sentence" type="Label" parent="Camera2D/TextureRect/Node2D"]
+offset_left = -304.0
+offset_top = 16.0
+offset_right = 329.0
+offset_bottom = 39.0
+text = "Quick, I must avoid unhealthy food and eat good and healthy food to get rid of it..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label" type="Label" parent="Camera2D/TextureRect/Node2D"]
+offset_left = -87.0
+offset_top = 45.0
+offset_right = 73.0
+offset_bottom = 68.0
+text = "Before it is too late..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[connection signal="animation_finished" from="Camera2D/TextureRect/Node2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

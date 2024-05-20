@@ -524,7 +524,7 @@ position = Vector2(1067, 372)
 
 [node name="Player" parent="." instance=ExtResource("4_sx15j")]
 texture_filter = 1
-position = Vector2(103, 243)
+position = Vector2(-110, 160)
 collision_mask = 2
 
 [node name="mapBorders" type="Area2D" parent="."]
