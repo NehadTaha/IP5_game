@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvh3usnso54dk"]
+[gd_scene load_steps=10 format=3 uid="uid://cvh3usnso54dk"]
 
 [ext_resource type="Texture2D" uid="uid://cstq4bh8lwkg4" path="res://Assets/Background/Gray.png" id="1_l0aes"]
 [ext_resource type="PackedScene" uid="uid://de1ob7pyocguo" path="res://tile_map.tscn" id="2_tpnub"]
 [ext_resource type="PackedScene" uid="uid://l5etu8ixs7f8" path="res://Assets/Scenes/end_checkpoint2.tscn" id="4_phc8l"]
 [ext_resource type="PackedScene" uid="uid://dyh7wotx6mktb" path="res://Scenes/player.tscn" id="4_t6dd7"]
+[ext_resource type="PackedScene" uid="uid://c284c3mio38fy" path="res://Items/collectible2.tscn" id="5_x0vmo"]
+[ext_resource type="PackedScene" uid="uid://c6p6owl02y6l3" path="res://Items/collectible1.tscn" id="6_pkt0x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5btf"]
 size = Vector2(1771, 129.5)
@@ -55,6 +57,35 @@ shape = SubResource("RectangleShape2D_oaap6")
 [node name="right" type="CollisionShape2D" parent="mapBorders"]
 position = Vector2(1434, 281.75)
 shape = SubResource("RectangleShape2D_1rpgp")
+
+[node name="Items" type="Node" parent="."]
+
+[node name="collectible2" parent="Items" instance=ExtResource("5_x0vmo")]
+position = Vector2(-5, 509)
+
+[node name="collectible5" parent="Items" instance=ExtResource("5_x0vmo")]
+position = Vector2(344, 186)
+
+[node name="collectible6" parent="Items" instance=ExtResource("5_x0vmo")]
+position = Vector2(425, 170)
+
+[node name="collectible7" parent="Items" instance=ExtResource("5_x0vmo")]
+position = Vector2(265, 170)
+
+[node name="collectible8" parent="Items" instance=ExtResource("5_x0vmo")]
+position = Vector2(320, 547)
+
+[node name="collectible3" parent="Items" instance=ExtResource("5_x0vmo")]
+position = Vector2(248, 408)
+
+[node name="collectible4" parent="Items" instance=ExtResource("5_x0vmo")]
+position = Vector2(441, 408)
+
+[node name="collectible1" parent="Items" instance=ExtResource("6_pkt0x")]
+position = Vector2(487, 233)
+
+[node name="collectible9" parent="Items" instance=ExtResource("6_pkt0x")]
+position = Vector2(752, 185)
 
 [node name="End checkpoint" parent="." instance=ExtResource("4_phc8l")]
 position = Vector2(1099, 386)
