@@ -543,21 +543,21 @@ shape = SubResource("RectangleShape2D_fxmy8")
 position = Vector2(1387, 298)
 shape = SubResource("RectangleShape2D_morst")
 
-[node name="items" type="Node" parent="."]
+[node name="Items" type="Node" parent="."]
 
-[node name="collectible1" parent="items" instance=ExtResource("5_3kbqg")]
+[node name="collectible1" parent="Items" instance=ExtResource("5_3kbqg")]
 position = Vector2(574, -52)
 
-[node name="collectible5" parent="items" instance=ExtResource("5_3kbqg")]
+[node name="collectible5" parent="Items" instance=ExtResource("5_3kbqg")]
 position = Vector2(850, -48)
 
-[node name="collectible2" parent="items" instance=ExtResource("5_lo7ug")]
+[node name="collectible2" parent="Items" instance=ExtResource("5_lo7ug")]
 position = Vector2(2, 212)
 
-[node name="collectible3" parent="items" instance=ExtResource("5_lo7ug")]
+[node name="collectible3" parent="Items" instance=ExtResource("5_lo7ug")]
 position = Vector2(5, 74)
 
-[node name="collectible4" parent="items" instance=ExtResource("5_lo7ug")]
+[node name="collectible4" parent="Items" instance=ExtResource("5_lo7ug")]
 position = Vector2(327, -22)
 
 [connection signal="body_entered" from="mapBorders" to="Player" method="_on_map_borders_body_entered"]
