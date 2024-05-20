@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d34np0gaitwia"]
+
+[ext_resource type="FontFile" uid="uid://bgda62dmfivuc" path="res://Assets/Fonts/super-pixel-font/SuperPixel-m2L8j.ttf" id="1_3nxe8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrs7h"]
+font = ExtResource("1_3nxe8")
+font_size = 56
+font_color = Color(0.660999, 0.956361, 0.931275, 1)
+
+[node name="GameName" type="Label"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 95.0
+offset_right = 48.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.231373, 0.584314, 0, 1)
+text = "Game Name"
+label_settings = SubResource("LabelSettings_nrs7h")

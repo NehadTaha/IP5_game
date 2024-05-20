@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://chkukbm6legug"]
+[gd_scene load_steps=9 format=3 uid="uid://chkukbm6legug"]
 
 [ext_resource type="Script" path="res://end_menu.gd" id="1_brdd8"]
 [ext_resource type="Texture2D" uid="uid://d1rwar1jdfhm" path="res://Assets/Menu/Buttons/Restart.png" id="2_12ogv"]
+[ext_resource type="Texture2D" uid="uid://tue3n0gpc4nu" path="res://Assets/Background/game.png" id="2_pr01w"]
 [ext_resource type="FontFile" uid="uid://bgda62dmfivuc" path="res://Assets/Fonts/super-pixel-font/SuperPixel-m2L8j.ttf" id="2_sh18m"]
 [ext_resource type="Texture2D" uid="uid://cdnueqg8umaxj" path="res://Assets/Menu/Buttons/Back.png" id="3_33i0l"]
 [ext_resource type="Texture2D" uid="uid://dwxcnuuyy3b5j" path="res://Assets/Menu/Buttons/Close.png" id="3_br3qu"]
 [ext_resource type="AudioStream" uid="uid://b7kia04uu8d8w" path="res://Sounds/chomp.mp3" id="6_qcmlf"]
+[ext_resource type="PackedScene" uid="uid://d34np0gaitwia" path="res://game_name.tscn" id="7_soel0"]
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
@@ -15,6 +17,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_brdd8")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pr01w")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -30,6 +41,10 @@ offset_bottom = 222.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="GameName" parent="VBoxContainer" instance=ExtResource("7_soel0")]
+layout_mode = 2
+text = "Game Over!!"
 
 [node name="RetryMenu" type="Button" parent="VBoxContainer"]
 layout_mode = 2
