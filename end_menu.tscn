@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://chkukbm6legug"]
+[gd_scene load_steps=9 format=3 uid="uid://chkukbm6legug"]
 
 [ext_resource type="Script" path="res://end_menu.gd" id="1_brdd8"]
 [ext_resource type="Texture2D" uid="uid://d1rwar1jdfhm" path="res://Assets/Menu/Buttons/Restart.png" id="2_12ogv"]
 [ext_resource type="FontFile" uid="uid://bgda62dmfivuc" path="res://Assets/Fonts/super-pixel-font/SuperPixel-m2L8j.ttf" id="2_sh18m"]
 [ext_resource type="Texture2D" uid="uid://cdnueqg8umaxj" path="res://Assets/Menu/Buttons/Back.png" id="3_33i0l"]
 [ext_resource type="Texture2D" uid="uid://dwxcnuuyy3b5j" path="res://Assets/Menu/Buttons/Close.png" id="3_br3qu"]
+[ext_resource type="Texture2D" uid="uid://depw2y5i5mqkf" path="res://Assets/Background/Pink.png" id="3_irtd7"]
 [ext_resource type="AudioStream" uid="uid://b7kia04uu8d8w" path="res://Sounds/chomp.mp3" id="6_qcmlf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3fmyu"]
+font = ExtResource("2_sh18m")
+font_size = 56
+font_color = Color(0.509804, 0.298039, 0.215686, 1)
 
 [node name="EndMenu" type="Control"]
 layout_mode = 3
@@ -16,6 +22,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_brdd8")
 
+[node name="ClickedButton" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qcmlf")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_irtd7")
+
+[node name="GameName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_top = 131.0
+offset_right = 309.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.231373, 0.584314, 0, 1)
+text = "Game over!!"
+label_settings = SubResource("LabelSettings_3fmyu")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -23,10 +55,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -282.5
-offset_top = -222.5
-offset_right = 282.5
-offset_bottom = 222.5
+offset_left = -234.0
+offset_top = -123.0
+offset_right = 331.0
+offset_bottom = 322.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -75,9 +107,6 @@ action_mode = 0
 text = "Quit"
 icon = ExtResource("3_br3qu")
 expand_icon = true
-
-[node name="ClickedButton" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_qcmlf")
 
 [connection signal="button_down" from="VBoxContainer/RetryMenu" to="." method="_on_retry_menu_button_down"]
 [connection signal="button_up" from="VBoxContainer/RetryMenu" to="." method="_on_retry_menu_button_up"]

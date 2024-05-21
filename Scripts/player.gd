@@ -15,6 +15,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	if (velocity.x > 1 || velocity.x  <-1):
 		animated_sprite_2d.play("Running")
+		$AudioStreamPlayer2D.play()
 	else:
 		animated_sprite_2d.play("default")
 	# Add the gravity.
@@ -44,4 +45,6 @@ func _physics_process(delta):
 	
 	var isLeft= velocity.x < 0
 	animated_sprite_2d.flip_h = isLeft
+	
+	
 	
