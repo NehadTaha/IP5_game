@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb4spdwymvs6n"]
+[gd_scene load_steps=13 format=3 uid="uid://cb4spdwymvs6n"]
 
 [ext_resource type="Texture2D" uid="uid://81dfc3p7arpa" path="res://Assets/Background/Green.png" id="1_m07p4"]
 [ext_resource type="Texture2D" uid="uid://cn64vts17bwau" path="res://Assets/Terrain/Terrain (16x16).png" id="2_35p1u"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyh7wotx6mktb" path="res://Scenes/player.tscn" id="4_xb5j6"]
 [ext_resource type="PackedScene" uid="uid://c6p6owl02y6l3" path="res://Items/collectible1.tscn" id="5_5oace"]
 [ext_resource type="PackedScene" uid="uid://bx78fbtdhn770" path="res://Assets/UI/GameUI.tscn" id="7_hf541"]
+[ext_resource type="PackedScene" uid="uid://83pvem5v38tk" path="res://Items/hazard.tscn" id="7_oqqtq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ud3h"]
 texture = ExtResource("2_35p1u")
@@ -549,5 +550,9 @@ position = Vector2(281, 371.667)
 [node name="GameUI" parent="." node_paths=PackedStringArray("endGoal") instance=ExtResource("7_hf541")]
 endGoal = NodePath("../End checkpoint")
 
+[node name="hazard" parent="." instance=ExtResource("7_oqqtq")]
+position = Vector2(100, 196)
+
 [connection signal="body_entered" from="mapBorders" to="Player" method="_on_map_borders_body_entered"]
 [connection signal="collected_signal" from="collectible1" to="GameUI" method="add_time"]
+[connection signal="time_removed_signal" from="hazard" to="GameUI" method="remove_time"]

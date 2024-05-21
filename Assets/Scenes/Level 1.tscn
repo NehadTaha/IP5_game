@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dd4gqvt3yqxvg"]
+[gd_scene load_steps=14 format=3 uid="uid://dd4gqvt3yqxvg"]
 
 [ext_resource type="Texture2D" uid="uid://81dfc3p7arpa" path="res://Assets/Background/Green.png" id="1_sm075"]
 [ext_resource type="Texture2D" uid="uid://cn64vts17bwau" path="res://Assets/Terrain/Terrain (16x16).png" id="2_dq1i8"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dyh7wotx6mktb" path="res://Scenes/player.tscn" id="4_sx15j"]
 [ext_resource type="PackedScene" uid="uid://c6p6owl02y6l3" path="res://Items/collectible1.tscn" id="5_xfr8b"]
 [ext_resource type="PackedScene" uid="uid://c284c3mio38fy" path="res://Items/collectible2.tscn" id="6_2qbvw"]
-[ext_resource type="PackedScene" uid="uid://bv6ntyqrb8030" path="res://backmusic.tscn" id="7_et5qw"]
+[ext_resource type="PackedScene" path="res://backmusic.tscn" id="7_et5qw"]
+[ext_resource type="PackedScene" uid="uid://bx78fbtdhn770" path="res://Assets/UI/GameUI.tscn" id="8_epcw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ud3h"]
 texture = ExtResource("2_dq1i8")
@@ -567,4 +568,14 @@ position = Vector2(700, 384)
 
 [node name="backmusic" parent="." instance=ExtResource("7_et5qw")]
 
+[node name="GameUI" parent="." node_paths=PackedStringArray("endGoal") instance=ExtResource("8_epcw0")]
+endGoal = NodePath("../End checkpoint")
+
 [connection signal="body_entered" from="mapBorders" to="Player" method="_on_map_borders_body_entered"]
+[connection signal="collected_signal" from="collectible1" to="GameUI" method="add_time"]
+[connection signal="collected_signal" from="collectible2" to="GameUI" method="add_time"]
+[connection signal="collected_signal" from="collectible3" to="GameUI" method="add_time"]
+[connection signal="collected_signal" from="collectible4" to="GameUI" method="add_time"]
+[connection signal="collected_signal" from="collectible5" to="GameUI" method="add_time"]
+[connection signal="collected_signal" from="collectible6" to="GameUI" method="add_time"]
+[connection signal="collected_signal" from="collectible7" to="GameUI" method="add_time"]

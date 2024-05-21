@@ -16,7 +16,8 @@ func _ready():
 	$Timer.start()
 	print(max_time)
 	print(time_left)
-	reset_fruit()
+	totalFruit = global.get_Collection_Progress()[1]
+	$MarginContainer/HBoxContainer/totalfruit.text = "/" + str(totalFruit)
 
 
 # Update the progress bar value
@@ -26,7 +27,7 @@ func update_progress_bar():
 
 # Called every second by the Timer
 func _on_timer_timeout():
-	if time_left > 0:
+	if time_left >= 0:
 		time_left -= 1
 		update_progress_bar()
 	if time_left <= 0:
@@ -45,6 +46,16 @@ func add_time(amount: float):
 	collectedFruit += 1
 	$MarginContainer/HBoxContainer/fruit.text = str(collectedFruit)
 	check_goal()
+	
+# Function to remove time when a hazard is encountered
+func remove_time(amount: float):
+	time_left -= amount
+	if time_left < 0:
+		time_left = 0
+	update_progress_bar()
+	collectedFruit -= 1
+	if collectedFruit <= 0:
+		collectedFruit = 0
 
 func reset_fruit():
 	collectedFruit = 0
@@ -54,7 +65,7 @@ func check_goal():
 	if collectedFruit >= totalFruit:
 		endGoal.visible = true
 		print("Level Complete")
+		global.reset_collection()
 
 func end_scene():
 		get_tree().change_scene_to_file("res://end_menu.tscn")
-
