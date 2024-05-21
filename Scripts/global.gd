@@ -4,7 +4,7 @@ var healthFoodCount: int = 0;
 var maxHealthFoodCount: int = 0;
 var goalReached = false;
 var currentLevel: int = 0
-var levelPaths = [preload("res://Assets/Scenes/Level 1.tscn"),preload("res://Assets/Scenes/Level 2.tscn"),preload("res://Assets/Scenes/Level 3.tscn")]
+
 
 func reset_collection():
 	healthFoodCount = 0;

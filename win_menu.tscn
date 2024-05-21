@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://bgda62dmfivuc" path="res://Assets/Fonts/super-pixel-font/SuperPixel-m2L8j.ttf" id="1_0yb7x"]
 [ext_resource type="Script" path="res://win_menu.gd" id="1_ffm88"]
 [ext_resource type="Texture2D" uid="uid://d1rwar1jdfhm" path="res://Assets/Menu/Buttons/Restart.png" id="2_0eekd"]
-[ext_resource type="Texture2D" uid="uid://bbowvlm1ryknl" path="res://Assets/Background/Designer.png" id="2_vo43v"]
+[ext_resource type="Texture2D" uid="uid://basgcej5pii47" path="res://Assets/Background/Designer.png" id="2_vo43v"]
 [ext_resource type="Texture2D" uid="uid://cdnueqg8umaxj" path="res://Assets/Menu/Buttons/Back.png" id="3_0vsmq"]
 [ext_resource type="Texture2D" uid="uid://dwxcnuuyy3b5j" path="res://Assets/Menu/Buttons/Close.png" id="4_gerin"]
 [ext_resource type="AudioStream" uid="uid://b7kia04uu8d8w" path="res://Sounds/chomp.mp3" id="5_gh4oh"]

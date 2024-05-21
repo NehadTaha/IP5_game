@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvh3usnso54dk"]
+[gd_scene load_steps=13 format=3 uid="uid://cvh3usnso54dk"]
 
 [ext_resource type="Texture2D" uid="uid://cstq4bh8lwkg4" path="res://Assets/Background/Gray.png" id="1_l0aes"]
 [ext_resource type="PackedScene" uid="uid://de1ob7pyocguo" path="res://tile_map.tscn" id="2_tpnub"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c6p6owl02y6l3" path="res://Items/collectible1.tscn" id="5_wlsao"]
 [ext_resource type="PackedScene" uid="uid://c284c3mio38fy" path="res://Items/collectible2.tscn" id="6_as3eb"]
 [ext_resource type="PackedScene" uid="uid://bv6ntyqrb8030" path="res://backmusic.tscn" id="7_m3ybu"]
+[ext_resource type="PackedScene" uid="uid://bx78fbtdhn770" path="res://Assets/UI/GameUI.tscn" id="8_f60ej"]
+[ext_resource type="PackedScene" uid="uid://83pvem5v38tk" path="res://Items/hazard.tscn" id="9_y0xbp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5btf"]
 size = Vector2(1771, 129.5)
@@ -62,23 +64,14 @@ shape = SubResource("RectangleShape2D_1rpgp")
 [node name="End checkpoint" parent="." instance=ExtResource("4_phc8l")]
 position = Vector2(1099, 386)
 
-[node name="collectible1" parent="." instance=ExtResource("5_wlsao")]
-position = Vector2(-5, 509)
-
 [node name="collectible2" parent="." instance=ExtResource("5_wlsao")]
 position = Vector2(113, 446)
-
-[node name="collectible3" parent="." instance=ExtResource("5_wlsao")]
-position = Vector2(249, 232)
 
 [node name="collectible4" parent="." instance=ExtResource("6_as3eb")]
 position = Vector2(441, 235)
 
 [node name="collectible5" parent="." instance=ExtResource("6_as3eb")]
 position = Vector2(301, 389)
-
-[node name="collectible6" parent="." instance=ExtResource("6_as3eb")]
-position = Vector2(394, 390)
 
 [node name="collectible7" parent="." instance=ExtResource("6_as3eb")]
 position = Vector2(609, 548)
@@ -87,5 +80,29 @@ position = Vector2(609, 548)
 position = Vector2(920, 449)
 
 [node name="backmusic" parent="." instance=ExtResource("7_m3ybu")]
+
+[node name="GameUI" parent="." node_paths=PackedStringArray("endGoal") instance=ExtResource("8_f60ej")]
+endGoal = NodePath("../End checkpoint")
+
+[node name="hazard" parent="." instance=ExtResource("9_y0xbp")]
+position = Vector2(-7, 508)
+
+[node name="hazard2" parent="." instance=ExtResource("9_y0xbp")]
+position = Vector2(396, 386)
+
+[node name="hazard3" parent="." instance=ExtResource("9_y0xbp")]
+position = Vector2(321, 549)
+
+[node name="hazard4" parent="." instance=ExtResource("9_y0xbp")]
+position = Vector2(434, 547)
+
+[node name="hazard5" parent="." instance=ExtResource("9_y0xbp")]
+position = Vector2(209, 545)
+
+[node name="hazard6" parent="." instance=ExtResource("9_y0xbp")]
+position = Vector2(247, 231)
+
+[node name="hazard7" parent="." instance=ExtResource("9_y0xbp")]
+position = Vector2(776, 498)
 
 [connection signal="body_entered" from="mapBorders" to="Player" method="_on_map_borders_body_entered"]

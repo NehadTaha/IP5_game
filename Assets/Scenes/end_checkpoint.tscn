@@ -31,10 +31,11 @@ turbulence_enabled = true
 script/source = "extends GPUParticles2D
 
 var isPlaying = false
-var level2 = preload(\"res://Assets/Scenes/Level 2.tscn\") 
+var level2 = preload(\"res://Assets/Scenes/Level 2.tscn\")
 var level3 = preload(\"res://Assets/Scenes/Level 3.tscn\")
+var end = preload(\"res://win_menu.tscn\")
 func _on_area_2d_body_entered(body):
-	if(!isPlaying && global.healthFoodCount >= global.maxHealthFoodCount):
+	if(!isPlaying&& global.healthFoodCount >= global.maxHealthFoodCount):
 		set_emitting(true)
 		isPlaying = true
 		global.currentLevel = global.currentLevel + 1
@@ -52,6 +53,10 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().change_scene_to_packed(level2)
 	if(global.currentLevel == 2):
 		get_tree().change_scene_to_packed(level3)
+	if(global.currentLevel == 3):
+		get_tree().change_scene_to_packed(end)
+	
+	
 "
 
 [sub_resource type="Animation" id="Animation_fbgnk"]
