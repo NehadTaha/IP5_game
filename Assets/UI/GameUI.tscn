@@ -51,6 +51,5 @@ text = "0"
 
 [node name="totalfruit" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "/10"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
